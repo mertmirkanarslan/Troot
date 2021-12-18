@@ -1,0 +1,11 @@
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\bin\Debug\net5.0\Troot.Core.deps.json
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\bin\Debug\net5.0\Troot.Core.dll
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\bin\Debug\net5.0\ref\Troot.Core.dll
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\bin\Debug\net5.0\Troot.Core.pdb
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\obj\Debug\net5.0\Troot.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\obj\Debug\net5.0\Troot.Core.AssemblyInfoInputs.cache
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\obj\Debug\net5.0\Troot.Core.AssemblyInfo.cs
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\obj\Debug\net5.0\Troot.Core.csproj.CoreCompileInputs.cache
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\obj\Debug\net5.0\Troot.Core.dll
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\obj\Debug\net5.0\ref\Troot.Core.dll
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\obj\Debug\net5.0\Troot.Core.pdb

@@ -1,0 +1,12 @@
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Model\bin\Debug\net5.0\Troot.Model.deps.json
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Model\bin\Debug\net5.0\Troot.Model.dll
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Model\bin\Debug\net5.0\ref\Troot.Model.dll
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Model\bin\Debug\net5.0\Troot.Model.pdb
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Model\obj\Debug\net5.0\Troot.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Model\obj\Debug\net5.0\Troot.Model.AssemblyInfoInputs.cache
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Model\obj\Debug\net5.0\Troot.Model.AssemblyInfo.cs
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Model\obj\Debug\net5.0\Troot.Model.csproj.CoreCompileInputs.cache
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Model\obj\Debug\net5.0\Troot.Model.dll
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Model\obj\Debug\net5.0\ref\Troot.Model.dll
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Model\obj\Debug\net5.0\Troot.Model.pdb
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Model\obj\Debug\net5.0\Troot.Model.csprojAssemblyReference.cache

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Troot.Web", "Troot.Web\Troot.Web.csproj", "{201F18CC-CE91-4DE2-9DCF-B47CE17CE75F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Troot.API", "Troot.API\Troot.API.csproj", "{CEC694D7-D2DA-4474-87F4-5DEF61A3818D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Troot.DB", "Troot.DB\Troot.DB.csproj", "{FFFA9AE1-F4C8-4F0E-A7BE-E3842C8E499D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Troot.Core", "Troot.Core\Troot.Core.csproj", "{289C436D-6A78-4EE0-8045-5C98C5BE312F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Troot.Model", "Troot.Model\Troot.Model.csproj", "{A69BDF55-CB38-4443-8A2B-633C661EB60A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Troot.Service", "Troot.Service\Troot.Service.csproj", "{1253B947-5324-4021-96C2-85EAA6E3A3FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{201F18CC-CE91-4DE2-9DCF-B47CE17CE75F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{201F18CC-CE91-4DE2-9DCF-B47CE17CE75F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{201F18CC-CE91-4DE2-9DCF-B47CE17CE75F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{201F18CC-CE91-4DE2-9DCF-B47CE17CE75F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEC694D7-D2DA-4474-87F4-5DEF61A3818D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEC694D7-D2DA-4474-87F4-5DEF61A3818D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEC694D7-D2DA-4474-87F4-5DEF61A3818D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEC694D7-D2DA-4474-87F4-5DEF61A3818D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFFA9AE1-F4C8-4F0E-A7BE-E3842C8E499D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFFA9AE1-F4C8-4F0E-A7BE-E3842C8E499D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFFA9AE1-F4C8-4F0E-A7BE-E3842C8E499D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFFA9AE1-F4C8-4F0E-A7BE-E3842C8E499D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{289C436D-6A78-4EE0-8045-5C98C5BE312F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{289C436D-6A78-4EE0-8045-5C98C5BE312F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{289C436D-6A78-4EE0-8045-5C98C5BE312F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{289C436D-6A78-4EE0-8045-5C98C5BE312F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A69BDF55-CB38-4443-8A2B-633C661EB60A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A69BDF55-CB38-4443-8A2B-633C661EB60A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A69BDF55-CB38-4443-8A2B-633C661EB60A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A69BDF55-CB38-4443-8A2B-633C661EB60A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1253B947-5324-4021-96C2-85EAA6E3A3FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1253B947-5324-4021-96C2-85EAA6E3A3FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1253B947-5324-4021-96C2-85EAA6E3A3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1253B947-5324-4021-96C2-85EAA6E3A3FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9CA355A-B061-46FB-B7C5-1357FAE8A596}
+	EndGlobalSection
+EndGlobal
