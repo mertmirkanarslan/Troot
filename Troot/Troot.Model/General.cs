@@ -14,5 +14,7 @@ namespace Troot.Model
         public List<T> List { get; set; } //T tipinde liste dönebiliriz bu tanımlama ile.
         public string ExceptionMessage { get; set; } //hata mesajlarını dönerken kullanacağız
         public string Message { get; set; }  //Mesaj dönerken kullanacağız
+        public int ProductCount { get; set; } //
+        public decimal PageCount { get; set; } //
     }
 }

@@ -64,3 +64,5 @@ C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.API\bin\Debu
 C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.API\bin\Debug\net5.0\Troot.DB.pdb
 C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.API\bin\Debug\net5.0\Troot.Model.pdb
 C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.API\bin\Debug\net5.0\Troot.Service.pdb
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.API\bin\Debug\net5.0\Troot.Core.dll
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.API\bin\Debug\net5.0\Troot.Core.pdb

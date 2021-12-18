@@ -38,7 +38,7 @@ namespace Troot.Service.Category
                 }
                 else
                 {
-                    category.ExceptionMessage = "Bir hata oluştu.";
+                    category.ExceptionMessage = "Kategori bulunamadı.";
                 }
             }
             return category;
@@ -79,7 +79,7 @@ namespace Troot.Service.Category
                     //Değişiklikler kaydedildi. aşağıda da mapleme yapıldı.
                     data.Entity = mapper.Map<CategoryViewModel>(updatedCategory);
                     data.IsSuccess = true;
-                    data.Message = "Kategori güncelleme başarılı";
+                    data.Message = "Kategori güncelleme işlemi başarıyla tamamlandı.";
                 }
                 else
                 {
@@ -100,8 +100,8 @@ namespace Troot.Service.Category
                 {
                     categoryActivity.IsActive = false;
                     categoryActivity.IsDeleted = true;
-                    context.SaveChanges();
-
+                    context.SaveChanges(); //dbde aktiflikten pasif duruma çekildi, isdeleted olarak da true olarak eşitlendi. bu sayede dbden tamamen silinmemiş oldu.
+                    //mapleme:
                     result.Entity = mapper.Map<CategoryViewModel>(categoryActivity);
                     result.IsSuccess = true;
                     result.Message = "Kategori başarıyla silindi.";

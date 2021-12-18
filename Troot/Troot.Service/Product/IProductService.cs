@@ -20,5 +20,7 @@ namespace Troot.Service.Product
         public General<ListProductViewModel> SortProduct(string sortingParameter);
         //Filtering için eklendi
         public General<ListProductViewModel> FilterProduct(string param);
+        //Pagination için eklendi
+        public General<ListProductViewModel> PaginateProduct(int productByPage, int pageNumber);
     }
 }

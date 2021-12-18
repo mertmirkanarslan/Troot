@@ -71,7 +71,7 @@ namespace Troot.Service.User
             using (var context = new TrootContext())
             {
                 //izin kontrolü yapıyoruz
-                var permission = context.User.Any(x=> x.IsActive && !x.IsDeleted && 
+                var permission = context.User.Any(x=> x.IsActive && !x.IsDeleted &&  //aktif, silinmemiş ve kullanıcı adı ile parola eşleşmesi yapması durumunda true
                                          x.UserName == user.UserName &&
                                          x.Password == user.Password);
 
@@ -79,7 +79,7 @@ namespace Troot.Service.User
                                                 x.IsActive &&
                                                 x.UserName == user.UserName &&
                                                 x.Password == user.Password);
-                if (permission)
+                if (permission) //permission true olduğu durumda
                 {
                     result.Entity = mapper.Map<LoginViewModel>(data);
                     result.IsSuccess = true;
@@ -115,7 +115,7 @@ namespace Troot.Service.User
                 }
                 else
                 {
-                    result.ExceptionMessage = "Bir hata oluştu.";
+                    result.ExceptionMessage = "Bir hata oluştu. Lütfen tekrar deneyiniz.";
                 }
             }
             return result;

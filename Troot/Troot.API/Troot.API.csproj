@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Troot.Core\Troot.Core.csproj" />
     <ProjectReference Include="..\Troot.DB\Troot.DB.csproj" />
     <ProjectReference Include="..\Troot.Model\Troot.Model.csproj" />
     <ProjectReference Include="..\Troot.Service\Troot.Service.csproj" />

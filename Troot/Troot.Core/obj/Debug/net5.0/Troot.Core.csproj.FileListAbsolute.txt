@@ -9,3 +9,4 @@ C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\obj\Deb
 C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\obj\Debug\net5.0\Troot.Core.dll
 C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\obj\Debug\net5.0\ref\Troot.Core.dll
 C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\obj\Debug\net5.0\Troot.Core.pdb
+C:\Users\mertm\Documents\GitHub\odev-4-mertmirkanarslan\Troot\Troot.Core\obj\Debug\net5.0\Troot.Core.csprojAssemblyReference.cache

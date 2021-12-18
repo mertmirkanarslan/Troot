@@ -34,6 +34,7 @@ namespace Troot.Service.Product
                 {
                     product.List = mapper.Map<List<ProductViewModel>>(data);
                     product.IsSuccess = true;
+                    product.Message = "Ürünler listelendi.";
                 }
                 else
                 {
@@ -75,13 +76,22 @@ namespace Troot.Service.Product
 
             using (var context = new TrootContext())
             {
-                insertProduct.Idate = DateTime.Now;
-                insertProduct.IsActive = true;
-                context.Product.Add(insertProduct);
-                context.SaveChanges();
+                //Permission tanımını burada da yapıp ürün eklemeyi yetkiye bağlarsak:
+                //id ile Iuser(insert user) karşılaştırması yapıp klasik olan aktif ve silinmemiş olma şartını da eklersek
+                var permission = context.User.Any(x => x.Id == insertProduct.Iuser && x.IsActive && !x.IsDeleted);
+                if (permission)
+                {
+                    insertProduct.Idate = DateTime.Now;
+                    insertProduct.IsActive = true;
+                    context.Product.Add(insertProduct);
+                    context.SaveChanges();
 
-                data.Entity = mapper.Map<ProductViewModel>(insertProduct);
-                data.IsSuccess = true;
+                    data.Entity = mapper.Map<ProductViewModel>(insertProduct);
+                    data.IsSuccess = true;
+                    data.Message = "Ürün başarıyla eklendi.";
+                }
+                else data.ExceptionMessage = "Ürün eklemek için yetkili değilsiniz.";
+                
             }
             return data;
         }
@@ -93,22 +103,31 @@ namespace Troot.Service.Product
             using (var context = new TrootContext())
             {
                 var updatedProduct = context.Product.SingleOrDefault(x => x.Id == id);
-                if (updatedProduct is not null)
+                var permission = context.Product.Any(p => p.Iuser == product.IUser);
+                if (permission)
                 {
-                    updatedProduct.Name = product.Name;
-                    updatedProduct.DisplayName = product.DisplayName;
-                    updatedProduct.Description = product.Description;
-                    updatedProduct.Price = product.Price;
-                    updatedProduct.Stock = product.Stock;
+                    if (updatedProduct is not null)
+                    {
+                        updatedProduct.Name = product.Name;
+                        updatedProduct.DisplayName = product.DisplayName;
+                        updatedProduct.Description = product.Description;
+                        updatedProduct.Price = product.Price;
+                        updatedProduct.Stock = product.Stock;
 
-                    context.SaveChanges();
-                    data.Entity = mapper.Map<ProductViewModel>(updatedProduct);
-                    data.IsSuccess = true;
-                    data.Message = "Ürün başarıyla güncellendi.";
+                        context.SaveChanges();
+
+                        data.Entity = mapper.Map<ProductViewModel>(updatedProduct);
+                        data.IsSuccess = true;
+                        data.Message = "Ürün başarıyla güncellendi.";
+                    }
+                    else
+                    {
+                        data.ExceptionMessage = "Aradığınız ürün bulunamadı. Lütfen tekrar deneyiniz.";
+                    }
                 }
                 else
                 {
-                    data.ExceptionMessage = "Bir hata oluştu. Lütfen tekrar deneyiniz.";
+                    data.ExceptionMessage = "Bu işlemi gerçekleştirmek için yetkiniz yok.";
                 }
             }
             return data;
@@ -121,19 +140,26 @@ namespace Troot.Service.Product
             using (var context = new TrootContext())
             {
                 var productActivity = context.Product.SingleOrDefault(x => x.Id == id);
-                if (productActivity is not null)
+                var permission = context.Product.Any(x => x.Iuser == product.IUser);
+                if (permission)
                 {
-                    productActivity.IsActive = false;
-                    productActivity.IsDeleted = true;
-
-                    context.SaveChanges();
-                    result.Entity = mapper.Map<ProductViewModel>(productActivity);
-                    result.IsSuccess = true;
-                    result.Message = "Ürün başarıyla silindi.";
+                    if (productActivity is not null)
+                    {
+                        productActivity.IsActive = false;
+                        productActivity.IsDeleted = true;
+                        context.SaveChanges();
+                        result.Entity = mapper.Map<ProductViewModel>(productActivity);
+                        result.IsSuccess = true;
+                        result.Message = "Ürün başarıyla silindi.";
+                    }
+                    else
+                    {
+                        result.ExceptionMessage = "Silinmek istenen ürün bulunamadı. Lütfen tekrar deneyiniz.";
+                    }
                 }
                 else
                 {
-                    result.ExceptionMessage = "Hata. Lütfen tekrar deneyiniz.";
+                    result.ExceptionMessage = "Bu işlemi yapmak için yetkiniz bulunmamaktadır. Lütfen tekrar deneyiniz.";
                 }
             }
             return result;
@@ -145,20 +171,20 @@ namespace Troot.Service.Product
             var result = new General<ListProductViewModel>();
             using (var context = new TrootContext())
             {
-                var products = context.Product.Where(x => x.IsActive && !x.IsDeleted && x.Id > 0);
-                if (param.Equals("NameASC"))
+                var products = context.Product.Where(x => x.IsActive && !x.IsDeleted && x.Id > 0); //idsi olan, aktif ve silinmemiş ürünler
+                if (param.Equals("NameASC")) //isme göre artan
                 {
                     products = products.OrderBy(x => x.Name);
                 }
-                else if (param.Equals("NameDESC"))
+                else if (param.Equals("NameDESC")) //isme göre azalan
                 {
                     products = products.OrderByDescending(x => x.Name);
                 }
-                else if (param.Equals("PriceASC"))
+                else if (param.Equals("PriceASC")) //fiyata göre artan
                 {
                     products = products.OrderBy(x => x.Price);
                 }
-                else if (param.Equals("PriceDESC"))
+                else if (param.Equals("PriceDESC")) //fiyata göre azalan
                 {
                     products = products.OrderByDescending(x => x.Price);
                 }
@@ -196,5 +222,45 @@ namespace Troot.Service.Product
             }
             return result;
         }
+
+        //Pagination (Sayfalama). 
+        // Sayfalama işlemi. Eğer istenilen sayfa sayısı ve sayfadaki ürün sayısı özellikleri toplam ürün sayısına
+        // uygun değilse hataya özel hata mesajları döner. X. sayfa Y adet ürün şeklinde çalışır.
+        public General<ListProductViewModel> PaginateProduct(int productByPage, int pageNumber)
+        {
+            var result = new General<ListProductViewModel>();
+            decimal pageCount = 0;
+            decimal productCount = 0;
+
+            using (var context = new TrootContext())
+            {
+                result.ProductCount = context.Product.Count();
+                productCount = result.ProductCount;
+                pageCount = Math.Ceiling(productCount / productByPage);
+                var product = context.Product.OrderBy(x => x.Id).Skip((int)((pageNumber - 1) * productByPage)).Take((int)productByPage).ToList();
+
+                if (productByPage <= 0 || pageNumber <= 0)
+                {
+                    result.ExceptionMessage = "Değerler 0'dan küçük olamaz. Hatalı işlem.";
+                }
+                else if (productByPage > productCount)
+                {
+                    result.ExceptionMessage = "Ürün sayfa sayısı ürün sayısından büyük olamaz. Hatalı işlem.";
+                }
+                else if (pageNumber > productCount)
+                {
+                    result.ExceptionMessage = "Bu kadar sayfa bulunmamaktadır. Hatalı işlem.";
+                }
+                else
+                {
+                    result.List = mapper.Map<List<ListProductViewModel>>(product);
+                    result.IsSuccess = true;
+                    result.Message = "Sayfalama başarıyla yapıldı.";
+                }
+            }
+            result.PageCount = pageCount;
+            return result;
+        }
+
     }
 }

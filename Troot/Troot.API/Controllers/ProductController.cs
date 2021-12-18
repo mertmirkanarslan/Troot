@@ -71,5 +71,13 @@ namespace Troot.API.Controllers
             return productService.FilterProduct(param);
         }
 
+        //Ürünleri sayfalama (pagination işlemi)
+        [HttpGet]
+        [Route("Paginate")]
+        public General<ListProductViewModel> PaginateProduct([FromQuery] int productByPage, [FromQuery] int pageNumber)
+        {
+            return productService.PaginateProduct(productByPage, pageNumber);
+        }
+
     }
 }
