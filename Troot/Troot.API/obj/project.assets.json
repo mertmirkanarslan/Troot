@@ -1562,6 +1562,16 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Troot.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Troot.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Troot.Core.dll": {}
+        }
+      },
       "Troot.DB/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -5955,6 +5965,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Troot.Core/1.0.0": {
+      "type": "project",
+      "path": "../Troot.Core/Troot.Core.csproj",
+      "msbuildProject": "../Troot.Core/Troot.Core.csproj"
+    },
     "Troot.DB/1.0.0": {
       "type": "project",
       "path": "../Troot.DB/Troot.DB.csproj",
@@ -5975,6 +5990,7 @@
     "net5.0": [
       "AutoMapper >= 10.1.1",
       "Swashbuckle.AspNetCore >= 5.6.3",
+      "Troot.Core >= 1.0.0",
       "Troot.DB >= 1.0.0",
       "Troot.Model >= 1.0.0",
       "Troot.Service >= 1.0.0"
@@ -6007,6 +6023,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "C:\\Users\\mertm\\Documents\\GitHub\\odev-4-mertmirkanarslan\\Troot\\Troot.Core\\Troot.Core.csproj": {
+              "projectPath": "C:\\Users\\mertm\\Documents\\GitHub\\odev-4-mertmirkanarslan\\Troot\\Troot.Core\\Troot.Core.csproj"
+            },
             "C:\\Users\\mertm\\Documents\\GitHub\\odev-4-mertmirkanarslan\\Troot\\Troot.DB\\Troot.DB.csproj": {
               "projectPath": "C:\\Users\\mertm\\Documents\\GitHub\\odev-4-mertmirkanarslan\\Troot\\Troot.DB\\Troot.DB.csproj"
             },

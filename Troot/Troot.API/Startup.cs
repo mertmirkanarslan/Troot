@@ -40,6 +40,8 @@ namespace Troot.API
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
 
+            services.AddMemoryCache(); //InMemory Cache zaten core'da kurulu geldiði için direkt olarak kullanýyoruz.
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

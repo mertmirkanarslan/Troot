@@ -138,5 +138,63 @@ namespace Troot.Service.Product
             }
             return result;
         }
+
+        //Ürün sıralama (sorting)
+        public General<ListProductViewModel> SortProduct(string param)
+        {
+            var result = new General<ListProductViewModel>();
+            using (var context = new TrootContext())
+            {
+                var products = context.Product.Where(x => x.IsActive && !x.IsDeleted && x.Id > 0);
+                if (param.Equals("NameASC"))
+                {
+                    products = products.OrderBy(x => x.Name);
+                }
+                else if (param.Equals("NameDESC"))
+                {
+                    products = products.OrderByDescending(x => x.Name);
+                }
+                else if (param.Equals("PriceASC"))
+                {
+                    products = products.OrderBy(x => x.Price);
+                }
+                else if (param.Equals("PriceDESC"))
+                {
+                    products = products.OrderByDescending(x => x.Price);
+                }
+                else
+                {
+                    result.ExceptionMessage = "Bir hata oluştu";
+                    return result;
+                }
+                result.IsSuccess = true;
+                result.List = mapper.Map<List<ListProductViewModel>>(products);
+                result.Message = "Sıralama başarıyla yapıldı.";
+            }
+            return result;
+        }
+
+        //Ürün filtreleme (filtering)
+        public General<ListProductViewModel> FilterProduct(string param)
+        {
+            var result = new General<ListProductViewModel>();
+            using (var context = new TrootContext())
+            {
+                var product = context.Product.Where(x => x.IsActive && !x.IsDeleted && x.Id > 0);
+                product = product.Where(x => x.Name.StartsWith(param));
+                if (product.Any())
+                {
+                    result.IsSuccess = true;
+                    result.List = mapper.Map<List<ListProductViewModel>>(product);
+                    result.Message = "Filtreleme başarıyla yapıldı.";
+                }
+                else
+                {
+                    result.ExceptionMessage = "Bir hata oluştu. Lütfen tekrar deneyiniz.";
+                    return result;
+                }
+            }
+            return result;
+        }
     }
 }

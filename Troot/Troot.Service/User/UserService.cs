@@ -62,7 +62,7 @@ namespace Troot.Service.User
             return result;
         }
 
-        //Kullanıcı giriş
+        //Kullanıcı giriş (login)
         public General<LoginViewModel> Login(LoginViewModel user)
         {
             var result = new General<LoginViewModel>();
@@ -70,18 +70,26 @@ namespace Troot.Service.User
 
             using (var context = new TrootContext())
             {
-                if (context.User.Any(x => x.IsActive && !x.IsDeleted && 
-                                          x.UserName == user.UserName &&
-                                          x.Password == user.Password))
+                //izin kontrolü yapıyoruz
+                var permission = context.User.Any(x=> x.IsActive && !x.IsDeleted && 
+                                         x.UserName == user.UserName &&
+                                         x.Password == user.Password);
+
+                var data = context.User.FirstOrDefault(x => !x.IsDeleted &&
+                                                x.IsActive &&
+                                                x.UserName == user.UserName &&
+                                                x.Password == user.Password);
+                if (permission)
                 {
-                    result.Entity = mapper.Map<LoginViewModel>(loginUser);
+                    result.Entity = mapper.Map<LoginViewModel>(data);
                     result.IsSuccess = true;
-                    result.Message = "Giriş işlemi başarılı.";
+                    result.Message = "Giriş başarılı.";
                 }
                 else
                 {
-                    result.ExceptionMessage = "Bir hata oluştu. Tekrar deneyin.";
+                    result.ExceptionMessage = "Bir hata oluştu. Lütfen tekrar deneyiniz.";
                 }
+
             }
             return result;
         }

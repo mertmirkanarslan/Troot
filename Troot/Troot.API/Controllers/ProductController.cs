@@ -55,5 +55,21 @@ namespace Troot.API.Controllers
             return productService.DeleteProduct(id, product);
         }
 
+        //Ürünleri sıralama (sort işlemi)
+        [HttpGet]
+        [Route("Sort")]
+        public General<ListProductViewModel> SortProduct([FromQuery] string param)
+        {
+            return productService.SortProduct(param);
+        }
+
+        //Ürünleri filtreleme (filtering işlemi)
+        [HttpGet]
+        [Route("Filter")]
+        public General<ListProductViewModel> FilterProduct([FromQuery] string param)
+        {
+            return productService.FilterProduct(param);
+        }
+
     }
 }

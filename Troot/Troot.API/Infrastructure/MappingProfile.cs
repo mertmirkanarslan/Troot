@@ -24,6 +24,9 @@ namespace Troot.API.Infrastructure
             CreateMap<ProductViewModel, Product>();
             CreateMap<Product, ProductViewModel>();
 
+            CreateMap<Product, ListProductViewModel>(); //Product ile ListProductViewModel'i mapliyoruz.
+            CreateMap<ListProductViewModel, Product>();
+
             CreateMap<CategoryViewModel, Category>();
             CreateMap<Category, CategoryViewModel>();
 
