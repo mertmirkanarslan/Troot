@@ -1,5 +1,4 @@
-### Gelecek Varlık Full-Stack Bootcamp 4. Hafta Ödevi
-
+### Troot E-Commerce Project 
 - [ ] Kullanıcıların sisteme login olabildiği
 
 - [ ] Bu login işleminin bir Login Filter attribute'u ile kontrol edildiği
